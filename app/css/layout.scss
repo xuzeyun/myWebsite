@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+// 采用flex布局
+// 1能指定flex方向；2设置flex或者inline-flex
+
+@mixin flex($direction:column, $inline:block){ //column 垂直排列
+  //如果$inline==block 就是flex，否则就是inline-flex
+  display: if($inline==block,flex,inline-flex);
+  //项目的排列方向，默认垂直排列
+  flex-direction: $direction;
+  //wrap换行，第一行在上方 nowrap（默认）：不换行
+  flex-wrap: wrap;
+}
