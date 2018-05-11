@@ -24,7 +24,13 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					'vue-style-loader',
+					{
+						loader: 'vue-style-loader',
+						options: {
+							sourceMap: true,
+							convertToAbsoluteUrls: true
+						}
+					},
 					{
 						loader: 'css-loader',
 						options: {
@@ -65,9 +71,14 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(png|svg|jpg|gif)$/,
+				test: /\.(png|jpg|gif)$/,
 				use: [
-					'file-loader'
+					{
+						loader: 'file-loader',
+						options: {
+							// publicPath: 'assets/'
+						}
+					}
 				]
 			}
 		]

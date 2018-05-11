@@ -49,3 +49,14 @@ hr {
     background-color: #000;
     height: 1px
 }
+html, body{
+  height: 100vh;
+
+}
+body{
+  background: {
+    image: url(../assets/images/bg.png);
+    size: 100% auto;
+    repeat: no-repeat;
+  }
+}

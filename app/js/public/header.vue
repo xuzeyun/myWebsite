@@ -1,13 +1,13 @@
 <template>
   <div :class="$style.header">
-    <h1 :class="$style.logo">logo</h1>
     <div :class="$style.nav">
       <ul>
-        <li><a href="javascript:;">首页</a></li>
+        <li :class="$style.logo"></li>
+        <li><a :class="$style.active" href="javascript:;">首页</a></li>
         <li><a href="javascript:;">小案例</a></li>
         <li><a href="javascript:;">设计</a></li>
         <li><a href="javascript:;">网址</a></li>
-        <li><a href="javascript:;">关于我</a></li>
+        <li><a href="javascript:;">ME</a></li>
       </ul>
     </div>
   </div>
@@ -19,20 +19,37 @@
 
 <style lang="scss" module>
   .header {
-      background: #333;
-      color: #666;
-      height: 100px;
-      line-height: 100px;
+      background: #2b2938;
+      color: #a1a7c2;
+      height: 120px;
+      line-height: 120px;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 50px;
+      left: 50px;
+      right: 50px;
       font-size: 32px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+      ul{
+        display: flex;
+      }
+      li{
+        flex: 1;
+      }
+      a{
+        display: block;
+        color: #a1a7c2;
+        text-align: center;
+        text-decoration: none;
+        &:hover{ color: #fff;}
+      }
+      a.active{
+        background: rgba(0,0,0,0.4);
+        color: #fff;
+      }
       .logo {
-          width: 200px;
-          height: 60px;
-          display: block;
-          background: #ddd;
+          // background: #ddd;
       }
       .nav {
       }

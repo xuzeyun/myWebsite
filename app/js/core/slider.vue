@@ -1,53 +1,51 @@
 <template>
-  <section :class="cname">
+  <div :class="cname">
+    <!-- swiper -->
     <swiper :options="swiperOption">
-      <swiper-slide v-for="item in items" :key="item.href">
-        <router-link :to="{ name: 'item.href'}">
-          <img :src="item.src" alt="">
-        </router-link>
+      <!-- <swiper-slide v-for="item in items" :key="item.href"> -->
+      <swiper-slide v-for="item in items">
+          <router-link :to="{ name: item.href}">
+              <img :src="item.src" alt="">
+          </router-link>
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-pagination" slot="pagination"/>
     </swiper>
-  </section>
+  </div>
 </template>
 
 <script>
-import {swiper, swiperSlide} from 'vue-swesome-swiper'
+// import 'swiper/dist/css/swiper.css';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 export default {
-  // components: {
-  //   swiper,
-  //   swiperSlide,
-  // },
+  components: {
+    swiper,
+    swiperSlide
+  },
   data() {
     return {
       swiperOption: {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
+        autoplay: true,
         pagination: {
           el: '.swiper-pagination',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+          dynamicBullets: true
         }
       }
     }
-  }
+  },
   props: {
-    items: {
-      type: Array,
-      default(){
-        return []
-      }
-    }
-  }
+      cname: {
+          type: String,
+          default: "",
+      },
+      items: {
+          type: Array,
+          default() {
+              return [{ href: "", src: "" }]
+          },
+      },
+  },
 }
 </script>
-
-<style lang="css" module>
-  @import "~swiper/dist/css/swiper";
+<style>
+/* @import "~swiper/dist/css/swiper.css"; */
 </style>
