@@ -24,20 +24,11 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					{
-						loader: 'vue-style-loader',
-						options: {
-							sourceMap: true,
-							convertToAbsoluteUrls: true
-						}
-					},
+					'vue-style-loader',
 					{
 						loader: 'css-loader',
 						options: {
-							// enable CSS Modules
-							modules: true,
-							// customize generated class names
-							localIdentName: '[local]_[hash:base64:8]'
+							// modules: true,
 						}
 					},
 					{
@@ -57,7 +48,9 @@ module.exports = {
 					'vue-style-loader',
 					{
 						loader: 'css-loader',
-						options: { modules: true }
+						options: {
+							modules: true
+						}
 					},
 					{
 						loader: 'px2rem-loader',
@@ -94,7 +87,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: '示例页面',
 			filename: 'index.html',
-			template: './app/index.html'
+			template: './app/index.html',
 		}),
 	],
 	resolve: {
